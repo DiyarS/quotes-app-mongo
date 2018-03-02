@@ -8,7 +8,7 @@ class Quotes extends Component {
 
 	removeQuote = e => {
 		let id = e.target.parentElement.id;
-		if (id === '') id = e.target.id;
+		if (id === '') id = e.target.id; //for Mozilla compatibility
 		this.props.onQuoteDelete(id);
 	};
 
