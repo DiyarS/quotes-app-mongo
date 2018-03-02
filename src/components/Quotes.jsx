@@ -7,7 +7,8 @@ class Quotes extends Component {
 	}
 
 	removeQuote = e => {
-		const id = e.target.parentElement.id;
+		let id = e.target.parentElement.id;
+		if (id === '') id = e.target.id;
 		this.props.onQuoteDelete(id);
 	};
 
@@ -17,17 +18,9 @@ class Quotes extends Component {
 			quotes.push(
 				<div className="quote-wrapper" key={q._id}>
 					<div className="quote">{q.text}</div>
-					<div className="remove-quote-icon-wrapper">
-						<button
-							type="button"
-							className="close"
-							id={q._id}
-							aria-label="Close"
-							onClick={this.removeQuote}
-						>
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
+					<button type="button" className="close" id={q._id} aria-label="Close" onClick={this.removeQuote}>
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
 			);
 		});

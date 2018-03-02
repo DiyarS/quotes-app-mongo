@@ -32,3 +32,6 @@ node_modules
 # Ignore build files
 public
 .idea
+
+# Ignore Google Web Speech API key
+src/db/service-account-file.json
